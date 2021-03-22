@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Babel.Obfuscator" Version="9.7.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.8.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+  <Target Name="SetupObfuscate" BeforeTargets="Obfuscate">
+    <ItemGroup>
+      <BabelRules Include="..\CoreGlobalRules.xml" />
+    </ItemGroup>
+    <PropertyGroup>
+      <BabelLicense>..\babel.licenses</BabelLicense>
+      <CleanAttributes>\[mscorlib\]System.Runtime.CompilerServices.CompilerGeneratedAttribute;\[mscorlib\]System.Diagnostics.DebuggerDisplayAttribute;\[mscorlib\]System.Diagnostics.DebuggerBrowsableAttribute;\[mscorlib\]System.Diagnostics.DebuggerNonUserCodeAttribute;\[mscorlib\]System.Diagnostics.DebuggerHiddenAttribute;\[mscorlib\]System.Diagnostics.DebuggerStepThroughAttribute;false</CleanAttributes>
+      <ConstRemoval>false</ConstRemoval>
+      <ControlFlowObfuscation>goto=true;switch=true;case=true;if=true;call=false;value=true;token=false;underflow=false;true</ControlFlowObfuscation>
+      <CopyAttributes>true</CopyAttributes>
+      <DeadCodeElimination>false</DeadCodeElimination>
+      <DebuggingProtection>false</DebuggingProtection>
+      <DependenciesManifest>true</DependenciesManifest>
+      <DisgregateRemoval>false</DisgregateRemoval>
+      <DynamicProxy>None</DynamicProxy>
+      <EmitInvalidOpcodes>false</EmitInvalidOpcodes>
+      <EnableObfuscationAgent>true</EnableObfuscationAgent>
+      <EnumRemoval>false</EnumRemoval>
+      <FlattenNamespaces>true</FlattenNamespaces>
+      <GenerateDebug>true</GenerateDebug>
+      <GenerateLogFile>false</GenerateLogFile>
+      <GenerateMapOutFile>false</GenerateMapOutFile>
+      <ILIterations>3</ILIterations>
+      <InlineExpansion>false</InlineExpansion>
+      <Instrument>false</Instrument>
+      <InstrumentEmptyMethods>true</InstrumentEmptyMethods>
+      <Internalize>false</Internalize>
+      <KeyOriginatorFile>StrongNameKey.snk</KeyOriginatorFile>
+      <ModuleInitializer>false</ModuleInitializer>
+      <MsilEncryption>false</MsilEncryption>
+      <ObfuscateEvents>true</ObfuscateEvents>
+      <ObfuscateFields>true</ObfuscateFields>
+      <ObfuscateMethods>true</ObfuscateMethods>
+      <ObfuscateParameters>true</ObfuscateParameters>
+      <ObfuscateProperties>true</ObfuscateProperties>
+      <ObfuscateTypes>true</ObfuscateTypes>
+      <ObfuscateXaml>false</ObfuscateXaml>
+      <OverloadedRenaming>true</OverloadedRenaming>
+      <ResourceEncryption>false</ResourceEncryption>
+      <SealClasses>false</SealClasses>
+      <SearchSatelliteAssemblies>true</SearchSatelliteAssemblies>
+      <ShowLogo>true</ShowLogo>
+      <ShowStatistics>true</ShowStatistics>
+      <StringEncryption>hash</StringEncryption>
+      <SuppressIldasm>false</SuppressIldasm>
+      <SuppressReflection>false</SuppressReflection>
+      <TamperingDetection>false</TamperingDetection>
+      <UnicodeNormalization>true</UnicodeNormalization>
+      <ValueEncryption>int32=true;int64=true;single=true;double=true;array=true;true</ValueEncryption>
+      <VerboseLevel>1</VerboseLevel>
+      <VirtualFunctions>true</VirtualFunctions>
+      <GenerateDependencyFile>true</GenerateDependencyFile> 
+      <CopyOutputSymbolsToPublishDirectory>true</CopyOutputSymbolsToPublishDirectory> 
+    </PropertyGroup>
+  </Target>
+
+</Project>
