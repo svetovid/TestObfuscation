@@ -22,9 +22,6 @@
   </ItemGroup>
 
   <Target Name="SetupObfuscate" BeforeTargets="Obfuscate">
-    <ItemGroup>
-      <BabelRules Include="..\CoreGlobalRules.xml" />
-    </ItemGroup>
     <PropertyGroup>
       <BabelLicense>..\babel.licenses</BabelLicense>
       <CleanAttributes>\[mscorlib\]System.Runtime.CompilerServices.CompilerGeneratedAttribute;\[mscorlib\]System.Diagnostics.DebuggerDisplayAttribute;\[mscorlib\]System.Diagnostics.DebuggerBrowsableAttribute;\[mscorlib\]System.Diagnostics.DebuggerNonUserCodeAttribute;\[mscorlib\]System.Diagnostics.DebuggerHiddenAttribute;\[mscorlib\]System.Diagnostics.DebuggerStepThroughAttribute;false</CleanAttributes>
@@ -48,7 +45,6 @@
       <Instrument>false</Instrument>
       <InstrumentEmptyMethods>true</InstrumentEmptyMethods>
       <Internalize>false</Internalize>
-      <KeyOriginatorFile>StrongNameKey.snk</KeyOriginatorFile>
       <ModuleInitializer>false</ModuleInitializer>
       <MsilEncryption>false</MsilEncryption>
       <ObfuscateEvents>true</ObfuscateEvents>
