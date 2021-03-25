@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net6.0;net48</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,12 +13,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Babel.Obfuscator" Version="9.7.3">
+    <PackageReference Include="Babel.Obfuscator" Version="9.7.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.8.0" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <Target Name="SetupObfuscate" BeforeTargets="Obfuscate">
@@ -68,8 +68,8 @@
       <ValueEncryption>int32=true;int64=true;single=true;double=true;array=true;true</ValueEncryption>
       <VerboseLevel>1</VerboseLevel>
       <VirtualFunctions>true</VirtualFunctions>
-      <GenerateDependencyFile>true</GenerateDependencyFile> 
-      <CopyOutputSymbolsToPublishDirectory>true</CopyOutputSymbolsToPublishDirectory> 
+      <GenerateDependencyFile>true</GenerateDependencyFile>
+      <CopyOutputSymbolsToPublishDirectory>true</CopyOutputSymbolsToPublishDirectory>
     </PropertyGroup>
   </Target>
 
